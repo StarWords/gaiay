@@ -7,7 +7,7 @@
       <li><a href="javascript:;">更多精彩</a></li>
     </ul>
     <live-list></live-list>
-    <a @click="doJoin" class="join_circle" v-if="showJoin">{{joinButtonText}}</a>
+    <join-circle :text="btnText" :onOff="true"></join-circle>
   </div>
 </template>
 
@@ -16,16 +16,18 @@
   import 'common/js/reset.js';
   import GHeader from 'components/GHeader/GHeader';
   import LiveList from 'components/LiveList/LiveList'
+  import JoinCircle from 'components/JoinCircle/JoinCircle'
   export default {
     name: 'app',
     components: {
-      GHeader, LiveList
+      GHeader, LiveList ,JoinCircle
     },
     created(){
       this.getRoleInfo();
     },
     data () {
       return {
+        btnText:'加入社群',
         roleInfo: {},
         showJoin: true,
         howJoin: 0,
