@@ -21,7 +21,27 @@
   export default {
     name: 'app',
     components: {
-       GHeader, GroupChat, LiveList, Members
+      GHeader, GroupChat, LiveList, Members
+    },
+    data(){
+      return {
+        onOff: false
+      }
+    },
+    created(){
+      console.log(1);
+      this.$http.get('/api/live/circle/lives')
+      .then(function (res) {
+        this.onOff = false;
+        if(this.onOff){
+          this.$http.get('/api/live').then(function (res) {
+            console.log("222");
+            console.log(res.body);
+          });
+        }
+      }).then(function () {
+        console.log("88888");
+      })
     }
   }
 </script>

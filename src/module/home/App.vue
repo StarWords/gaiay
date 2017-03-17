@@ -7,7 +7,7 @@
       <li><a href="javascript:;">更多精彩</a></li>
     </ul>
     <live-list></live-list>
-    <join-circle :text="btnText" :onOff="true"></join-circle>
+    <join-circle :text="btnText" :onOff="true" :circleId="" :userId="" :followerId="" :joinWay=""></join-circle>
   </div>
 </template>
 
@@ -45,33 +45,6 @@
 
         })
       },
-
-      doJoin(){
-        if (this.roleInfo.role == 4) {
-          var joinAuto = this.circleInfo.joinAuto;
-          switch (joinAuto) {
-            case 0:// 0直接加入
-              alert('直接加入-0');
-              break;
-            case 1://1暗号
-              alert('暗号-1');
-              break;
-            case 2: //2审核
-              alert('审核-2');
-              break;
-            case 4: //4付费
-              alert('付费-4');
-              break;
-            case 8: //8会员
-              alert('会员-8');
-              break
-            default:
-
-
-          }
-        }
-      }
-
     },
     computed: {
       joinButtonText(){
